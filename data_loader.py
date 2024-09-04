@@ -14,7 +14,7 @@ def dataloader():
 
     # Convert to a pandas DataFrame
     df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
-    
+
 
     # Add the target (species) to the DataFrame
     df['species'] = iris.target
@@ -30,3 +30,4 @@ def dataloader():
 if __name__ == "__main__":
 
     iris_df = dataloader()
+    print(iris_df.head())
