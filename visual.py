@@ -20,7 +20,7 @@ def plot_features(df):
     plt.ylabel(ylabel="sepal width (cm)")
     plt.legend(
         scatter.legend_elements()[0],
-        df["species_name"].unique(),
+        df["species"].unique(),
         loc="lower right",
         title="Classes",
     )

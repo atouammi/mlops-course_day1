@@ -1,0 +1,5 @@
+outs:
+- md5: 89b95b7ca765543d80fcb0d36423de90
+  size: 1623
+  hash: md5
+  path: Train_evaluate.cpython-311.pyc
