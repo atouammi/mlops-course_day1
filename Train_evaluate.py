@@ -1,31 +1,25 @@
-
-from sklearn.datasets import load_iris
-
-from sklearn.linear_model import LogisticRegression
-
-
 from sklearn.model_selection import train_test_split
-
-
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
+def train(df):
+    X_train, X_test, y_train, y_test = train_test_split(
+        df.iloc[:, :-1], df["species"], test_size=0.2, random_state=42
+    )
 
+    model = LogisticRegression(max_iter=200)
+    model.fit(X_train, y_train)
 
+    return model, X_train, X_test, y_train, y_test
 
-model = LogisticRegression()
-def train_eval(df,model):
-    
-    X = df.drop('species',axis=1)
-    y = df.species
+def get_accuracy(model, X_test, y_test):
+    predictions = model.predict(X_test)
+    accuracy = accuracy_score(y_test, predictions)
 
-    X_train , X_test , y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
-    
+    return accuracy
 
-    model.fit(X_train,y_train)
-
-
-    y_pred = model.predict(X_test)
-
-
-    acc  = accuracy_score(y_pred,y_test)
-    print(f"accuracy_score is :{acc}")
+if __name__ == "__main__":
+    iris_df = dataloader()
+    model, X_train, X_test, y_train, y_test = train(iris_df)
+    accuracy = get_accuracy(model, X_test, y_test)
+    print(f"Accuracy: {accuracy:.2f}")
