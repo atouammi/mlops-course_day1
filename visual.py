@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay
+from data_loader import dataloader
 
 def plot_feature(df, feature):
     # Plot a histogram of one of the features
@@ -35,7 +36,7 @@ def plot_model(model, X_test, y_test):
 
 
 if __name__ == "__main__":
-    iris_df = load_dataset()
+    iris_df = dataloader()
     model, X_train, X_test, y_train, y_test = train(iris_df)
     accuracy = get_accuracy(model, X_test, y_test)
     print(f"Accuracy: {accuracy:.2f}")
