@@ -1,5 +1,5 @@
 from data_loader import dataloader #,
-from Train_evaluate import train, get_accuracy
+#from Train_evaluate import train, get_accuracy
 
 def test_load_dataset():
     df = dataloader()
