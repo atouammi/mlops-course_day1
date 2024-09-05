@@ -1,12 +1,12 @@
 from data_loader import dataloader #,
-#from Train_evaluate import train, get_accuracy
+from Train_evaluate import train, get_accuracy
 
 def test_load_dataset():
     df = dataloader()
     assert not df.empty, "The DataFrame should not be empty after loading the dataset."
 
-# def test_model_accuracy():
-#     df = dataloader()
-#     model, X_train, X_test, y_train, y_test = train(df)
-#     accuracy = get_accuracy(model, X_test, y_test)
-#     assert accuracy > 0.8, "Model accuracy is below 80%."
+def test_model_accuracy():
+    df = dataloader()
+    model, X_train, X_test, y_train, y_test = train(df)
+    accuracy = get_accuracy(model, X_test, y_test)
+    assert accuracy > 0.8, "Model accuracy is below 80%."
