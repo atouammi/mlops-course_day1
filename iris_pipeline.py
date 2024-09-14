@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
     # plot
 
-    plot_feature(iris_df,"sepal length(cm)")
-    plot_feature(iris_df)
+    plot_feature(iris_df,"sepal length (cm)")
+    plot_feature(iris_df,"species")
     plot_model(model,X_test,y_test)
-    
+
